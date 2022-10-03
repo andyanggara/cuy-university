@@ -1,0 +1,152 @@
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+    h1 {
+        font-size: 16px;
+    }
+
+    nav a {
+        font-size: 10px;
+        padding: 14px !important;
+    }
+}
+
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.ocean {
+    background-color: #006994;
+    color: white;
+}
+
+.forest {
+    background-color: forestgreen;
+    color: white;
+}
+
+body,
+.dark,
+.ocean,
+.forest {
+    transition: all 0.5s ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    border-top: crimson 4px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0;
+}
+
+nav a:hover {
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    font-size: 16px;
+    font-weight: 700;
+    animation: blingBling 0.5s infinite;
+}
+
+@keyframes blingBling {
+    0% {
+        font-size: 16px;
+    }
+
+    50% {
+        font-size: 18px;
+    }
+
+    100% {
+        font-size: 16px;
+    }
+}
+
+@keyframes bgBlingBling {
+    14.3% {
+        background-color: red;
+    }
+
+    28.6% {
+        background-color: orange;
+    }
+
+    42.9% {
+        background-color: yellow;
+    }
+
+    57.2% {
+        background-color: green;
+    }
+
+    71.5% {
+        background-color: blue;
+    }
+
+    85.8% {
+        background-color: indigo;
+    }
+
+    100% {
+        background-color: purple;
+    }
+}
+
+#home:hover {
+    background-color: crimson;
+    color: white;
+}
+
+#darkMode:hover {
+    background-color: black;
+    color: white;
+}
+
+#oceanMode:hover {
+    background-color: #006994;
+    color: white;
+}
+
+#forestMode:hover {
+    background-color: forestgreen;
+    color: white;
+}

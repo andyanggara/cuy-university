@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>SESI 6 CUYUNIVERSITY - andyanggara</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <a onclick="reRender()" id="home">HOME</a>
+                <a onclick="darkMode()" id="darkMode">DARK ON</a>
+                <a onclick="oceanMode()" id="oceanMode">OCEAN ON</a>
+                <a onclick="forestMode()" id="forestMode">FOREST ON</a>
+            </nav>
+            <h1>SESI 6 CUYUNIVERSITY - andyanggara</h1>
+            <p class="info" id="info"></p>
+        </div>
+
+        <script>
+            let body = document.body;
+            let info = document.querySelector("#info");
+            let home = document.querySelector("#home");
+            let darkModes = document.querySelector("#darkMode");
+            let oceanModes = document.querySelector("#oceanMode");
+            let forestModes = document.querySelector("#forestMode");
+
+            const darkLimit = 5;
+            let darkCount = 0;
+            let darkRemainingLeft;
+
+            const oceanLimit = 5;
+            let oceanCount = 0;
+            let oceanRemainingLeft;
+
+            const forestLimit = 5;
+            let forestCount = 0;
+            let forestRemainingLeft;
+
+            function darkMode() {
+                darkCount += 1;
+                darkRemainingLeft = darkLimit - darkCount;
+                if (darkRemainingLeft >= 0) {
+                    body.classList.toggle("dark");
+                    info.textContent = `Dark mode dipakai ${darkCount}x, tersisa ${darkRemainingLeft}x`;
+                    if (body.classList.contains("dark")) {
+                        darkModes.textContent = "DARK OFF";
+                        body.classList.remove("ocean");
+                        body.classList.remove("forest");
+                        oceanModes.textContent = "OCEAN ON";
+                        forestModes.textContent = "FOREST ON";
+                        body.style.removeProperty("animation");
+                    } else {
+                        darkModes.textContent = "DARK ON";
+                    }
+                    if (darkRemainingLeft == 0) {
+                        info.textContent = `Dark mode dipakai ${darkCount}x, tidak tersisa`;
+                    }
+                } else {
+                    info.textContent = "FITUR DARK MODE TELAH HABIS";
+                    darkModes.style.display = "none";
+                    home.textContent = "RESET";
+                    body.style.animation = "bgBlingBling .8s infinite";
+                    return;
+                }
+            }
+
+            function oceanMode() {
+                oceanCount += 1;
+                oceanRemainingLeft = oceanLimit - oceanCount;
+                if (oceanRemainingLeft >= 0) {
+                    body.classList.toggle("ocean");
+                    info.textContent = `Ocean mode dipakai ${oceanCount}x, tersisa ${oceanRemainingLeft}x`;
+                    if (body.classList.contains("ocean")) {
+                        oceanModes.textContent = "OCEAN OFF";
+                        body.classList.remove("dark");
+                        body.classList.remove("forest");
+                        darkModes.textContent = "DARK ON";
+                        forestModes.textContent = "FOREST ON";
+                        body.style.removeProperty("animation");
+                    } else {
+                        oceanModes.textContent = "OCEAN ON";
+                    }
+                    if (oceanRemainingLeft == 0) {
+                        info.textContent = `Ocean mode dipakai ${oceanCount}x, tidak tersisa`;
+                    }
+                } else {
+                    info.textContent = "FITUR OCEAN MODE TELAH HABIS";
+                    oceanModes.style.display = "none";
+                    home.textContent = "RESET";
+                    body.style.animation = "bgBlingBling .8s infinite";
+                    return;
+                }
+            }
+
+            function forestMode() {
+                forestCount += 1;
+                forestRemainingLeft = forestLimit - forestCount;
+                if (forestRemainingLeft >= 0) {
+                    body.classList.toggle("forest");
+                    info.textContent = `Forest mode dipakai ${forestCount}x, tersisa ${forestRemainingLeft}x`;
+                    if (body.classList.contains("forest")) {
+                        forestModes.textContent = "FOREST OFF";
+                        body.classList.remove("dark");
+                        body.classList.remove("ocean");
+                        darkModes.textContent = "DARK ON";
+                        oceanModes.textContent = "OCEAN ON";
+                        body.style.removeProperty("animation");
+                    } else {
+                        forestModes.textContent = "FOREST ON";
+                    }
+                    if (forestRemainingLeft == 0) {
+                        info.textContent = `Forest mode dipakai ${forestCount}x, tidak tersisa`;
+                    }
+                } else {
+                    info.textContent = "FITUR FOREST MODE TELAH HABIS";
+                    forestModes.style.display = "none";
+                    home.textContent = "RESET";
+                    body.style.animation = "bgBlingBling .8s infinite";
+                    return;
+                }
+            }
+
+            function reRender() {
+                location.reload();
+            }
+        </script>
+    </body>
+</html>
